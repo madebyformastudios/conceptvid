@@ -1,6 +1,6 @@
 # Handover: conceptvid (YouTube explainer videos)
 
-Last updated 2026-10-11. Status: **the printer-ink video is finished and approved** ("This looks good"). Latest render: [release render-3](https://github.com/madebyformastudios/conceptvid/releases/tag/render-3).
+Last updated 2026-10-11. Status: video 1 (printer ink, render-4) is approved. **Video 2 (concert fees, 9:51, 88 scenes) is built and waiting for the user's review in Remotion Studio before it is pushed/rendered.**
 
 ## What this project is
 
@@ -10,7 +10,16 @@ The user makes YouTube explainer videos. They write the script and record the vo
 - Push access works over HTTPS from this Mac (no `gh` CLI installed; use `curl` against the GitHub API to read runs/releases).
 - Pushing to `main` with changes under `src/`, `public/`, `package*.json` or the workflow triggers a render. Markdown-only commits do not.
 
-## What the user wants (style, settled after three iterations)
+## What the user wants (style, settled after three iterations; refined on video 2)
+
+Feedback from video 2 (apply to every scene):
+- **No "AI slop" decoration**: the registration marks and CMYK colour bar were removed (new `Backdrop`, `backdrop: 'halftone'`).
+- **Text that belongs to a character sits right above that character** (use `headTop(s)`), not floating far away.
+- **Text inside containers must fit** (tags: `w={tagW(text)}`; bubbles auto-size; stamps size from text). Check every still.
+- **Props held naturally**: magnifier up in front of the face (`PEER` pose + `rHand={<Magnifier r={30} />}`), not stuck out sideways.
+- **Buildings must sit on the floor and look finished** (the courthouse was redone with pediment, frieze, steps).
+- HTML `<Label>` does not render inside `<Stage>` (SVG); use `SLabel` there.
+
 
 1. **Flat CMYK "print shop" infographics** (cream paper, halftone dots, registration marks, cyan/magenta/yellow/ink palette, Archivo Black headlines, thick ink outlines, hard drop shadows). Kept from v1.
 2. **Code-drawn cartoon characters acting inside the infographics**: round white heads, dot eyes, stick-ish limbs. **Every video uses the same two leads** (the user's rule):
@@ -25,17 +34,28 @@ The user makes YouTube explainer videos. They write the script and record the vo
 
 History: v1 (render-1) infographics only → v2 (render-2) puppets on Flow backgrounds, rejected for the backgrounds → v3 (render-3) infographics with the characters inside, approved.
 
-## How the video is built
+## How the videos are built
+
+One folder per video; shared engine around it.
 
 ```
-public/voiceover.mp3      user's narration (single file, starts at 0:00)
-src/script.json           script split into 30 scenes (s01..s30), 9 chapters
-src/words.json            per-scene start/end + timestamp of every script word (generated)
-src/Video.tsx             timeline: paper background, voiceover, one Sequence per scene, chapter swipes
-src/scenes/S1|S2|S3.tsx   the 30 scenes (S01..S30 map to s01..s30 via scenes/index.ts)
-src/scenes/layout.ts      layout grid: TOP=130 headline band, FLOOR=935, presenter columns
-src/components/Art.tsx    illustration kit: Printer, Cartridge, Drop, Page, Dialog, Tag, Stamp, Chip, Razor, ...
-src/components/Frame.tsx  Paper bg, ChapterBadge, Headline (word pop, *highlight*), Label, Stage, PrintSwipe, Sfx
+public/<video>/voiceover.mp3        the user's narration (pauses already tightened, see tools/tighten.py)
+src/videos/<video>/script.json      script split into scenes (s01..sNN), `chapter` on chapter openers
+src/videos/<video>/words.json       per-scene start/end + timestamp of every script word (generated)
+src/videos/<video>/scenes/*.tsx     scene components S01..SNN (any file names; index.ts lists the modules)
+src/videos/<video>/index.ts         the VideoDef: audio, scenes, words, components, backdrop
+src/videos/concert-fees/kit.tsx     topic art for video 2 (ticket, receipt, phone, venue, pie, donut, door, shop,
+                                    bot, courthouse, capitol, charts, timer, box office, badges with icons, browser...)
+src/videos/concert-fees/KitSheet.tsx  still with every kit piece (composition `KitSheet`)
+src/videos/concert-fees/scenes/common.tsx  <Sam>/<Gerald> wrappers, pose presets (SHOCK, POINT, PEER...),
+                                    SLabel (labels INSIDE a <Stage>), tagW (tag width that fits), headTop, Count
+src/Root.tsx              one wrapper component per video (props are JSON-serialized, so never pass `def` as a prop)
+src/Video.tsx             shared timeline: backdrop, voiceover, one Sequence per scene, chapter swipes,
+                          DRAFT card for scenes not built yet
+src/components/Backdrop.tsx  newer backdrop: paper, ground band under FLOOR, halftone washes in the chapter accent
+src/components/layout.ts  layout grid: TOP=130 headline band, FLOOR=935, presenter columns
+src/components/Art.tsx    illustration kit from video 1: Printer, Cartridge, Tag, Stamp, Arrow, Coin, Cursor, ...
+src/components/Frame.tsx  Paper bg (video 1), ChapterBadge, Headline (word pop, *highlight*), Label, Stage, PrintSwipe, Sfx
 src/characters/           Rig (pose, face, line-boil filter), Toon (outfits + LOOKS cast), Actor (keyframes,
                           auto blink/breathe/walk, emotes, Cam), Props (held items), CastSheet (cast preview)
 src/anim.ts               useBeat(): at('phrase') -> frame the narrator says it (minus LEAD=4 frames)
@@ -65,9 +85,10 @@ tools/stills.mjs          render one still per scene (or several with FRACS=0.4,
 npm ci                                   # once
 npm run studio                           # live preview in the browser
 npx tsc                                  # type-check (CI does this too)
-node tools/stills.mjs out/stills 0.5 s05,s12      # end-of-scene stills for chosen scenes
+VIDEO=concert-fees node tools/stills.mjs out/x 0.5 s05,s12   # end-of-scene stills (VIDEO defaults to concert-fees)
+tools/sheet.sh out/x out/sheet.png 4     # tile stills into one contact sheet
 FRACS=0.4,0.9 node tools/stills.mjs out/stills 0.5 s05   # several moments per scene
-npx remotion render src/index.ts PrinterInk out/printer-ink.mp4 --crf=18   # full local render (~5 min)
+npx remotion render src/index.ts ConcertFees out/concert-fees.mp4 --crf=18   # full local render
 npx remotion still src/index.ts CastSheet out/cast.png   # see the whole cast
 ```
 
@@ -75,16 +96,18 @@ Review workflow that worked well: render stills, tile them into contact sheets w
 
 ## Making the next video
 
-1. Put the new narration in `public/voiceover.mp3` and the script in `src/script.json` (scene ids, `chapter` on chapter openers, exact narration text).
+0. Shorten long pauses: `python3 tools/tighten.py raw.mp3 public/<video>/voiceover.mp3` (silences >0.5 s are cut from the middle: 0.8 s → ~0.5 s, 1.8 s → ~0.85 s).
+1. Put the script in `src/videos/<video>/script.json` (if the user gives only audio, transcribe it and split it into scenes of ~4-10 s; put chapter starts on the narrator's longest pauses).
 2. Transcribe with word timing (whisper.cpp is installed as `whisper-cli`; get a model such as `ggml-base.en.bin` from huggingface.co/ggerganov/whisper.cpp; the old copy lived in a temporary scratchpad and may be gone):
    ```bash
    ffmpeg -i public/voiceover.mp3 -ar 16000 -ac 1 vo.wav
    whisper-cli -m ggml-base.en.bin -f vo.wav -ojf -ml 1 -sow -of vo
-   python3 tools/align.py vo.json <video length in seconds, ~2.5 s past the last word>
+   python3 tools/align.py <video> vo.json <video length in seconds, ~2.5 s past the last word>
    ```
    It reports how many script words matched (612/613 last time); fix script typos if many fail.
 3. Write new scenes in `src/scenes/` (copy the patterns in S1-S3), then review with stills.
-4. Rename the composition and output file if wanted (`Root.tsx` id `PrinterInk`, the workflow's output names).
+4. Add a wrapper + `<Composition>` in `Root.tsx`, and set `.github/render-target` to `"<CompositionId> <output-name>"`. CI renders that one (workflow_dispatch can override it).
+5. Open Studio for the user (`.claude/launch.json` in the parent folder defines `remotion-studio`) and let them review **before** pushing; a push renders.
 
 ## Google Flow / flow-mcp (only if generated images are ever needed again)
 
@@ -97,7 +120,8 @@ Review workflow that worked well: render stills, tile them into contact sheets w
 ## Open items / ideas
 
 - **Thumbnail**: the release's `thumbnail-frame.png` is just frame 95 (title card). A proper YouTube thumbnail has not been made; offer one (code-drawn with the cast, or a Flow prompt for the user).
-- The `PrinterInk` composition id and file names are video-specific; generalize when starting video #2.
+- Video 2 narration oddity to raise with the user: around 5:58 the line "Tick pick, a reseller that sells without buyer fees. So keep that in mind. Estimates buyers still pay..." sounds like a sentence went missing in the recording.
+- whisper stamps a sentence's last word at the start of the next sentence; align.py now pulls those back.
 - `tools/stills.mjs` writes wherever you point it; `out/` is git-ignored.
 
 ## Memory

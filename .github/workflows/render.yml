@@ -3,8 +3,12 @@ name: Render video
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'public/**', 'package*.json', '.github/workflows/render.yml']
+    paths: ['src/**', 'public/**', 'package*.json', '.github/workflows/render.yml', '.github/render-target']
   workflow_dispatch:
+    inputs:
+      target:
+        description: 'Composition id and output name, e.g. "ConcertFees concert-fees" (blank = .github/render-target)'
+        required: false
 
 permissions:
   contents: write
@@ -42,20 +46,29 @@ jobs:
       - name: Type-check
         run: npx tsc
 
+      - name: Pick video
+        env:
+          TARGET: ${{ github.event.inputs.target }}
+        run: |
+          T="$TARGET"
+          [ -z "$T" ] && T="$(cat .github/render-target)"
+          echo "COMP=$(echo $T | cut -d' ' -f1)" >> $GITHUB_ENV
+          echo "NAME=$(echo $T | cut -d' ' -f2)" >> $GITHUB_ENV
+
       - name: Render video
-        run: npx remotion render src/index.ts PrinterInk out/printer-ink.mp4 --codec=h264 --crf=18 --audio-bitrate=320k --concurrency=100% --log=info
+        run: npx remotion render src/index.ts $COMP out/$NAME.mp4 --codec=h264 --crf=18 --audio-bitrate=320k --concurrency=100% --log=info
 
       - name: Normalize loudness for YouTube (-14 LUFS)
         run: |
-          npx remotion ffmpeg -v error -y -i out/printer-ink.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 256k out/normalized.mp4
-          mv out/normalized.mp4 out/printer-ink.mp4
+          npx remotion ffmpeg -v error -y -i out/$NAME.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 256k out/normalized.mp4
+          mv out/normalized.mp4 out/$NAME.mp4
 
       - name: Render thumbnail frame
-        run: npx remotion still src/index.ts PrinterInk out/thumbnail-frame.png --frame=95
+        run: npx remotion still src/index.ts $COMP out/thumbnail-frame.png --frame=95
 
       - uses: actions/upload-artifact@v4
         with:
-          name: printer-ink-video
+          name: ${{ env.NAME }}-video
           path: out/*
           retention-days: 30
 
@@ -63,8 +76,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: render-${{ github.run_number }}
-          name: Printer Ink video (render ${{ github.run_number }})
+          name: ${{ env.NAME }} (render ${{ github.run_number }})
           body: Rendered from ${{ github.sha }}.
           files: |
-            out/printer-ink.mp4
+            out/${{ env.NAME }}.mp4
             out/thumbnail-frame.png

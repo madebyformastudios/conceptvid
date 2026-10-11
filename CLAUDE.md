@@ -12,4 +12,8 @@ Hard rules from the user:
 - Build things from scratch rather than using pre-made skills.
 - Ask before anything that spends Google Flow credits (video generation).
 
-Before pushing: `npx tsc`, then review stills with `node tools/stills.mjs <dir> 0.5 <scene ids>`.
+- Text near a character sits just above them; text in a container must fit it; props are held naturally; no decorative filler (registration marks, colour bars).
+- Let the user preview in Remotion Studio before pushing (a push to main renders on GitHub).
+
+Videos live in `src/videos/<name>/`; `.github/render-target` picks which one CI renders.
+Before pushing: `npx tsc`, then review stills with `VIDEO=<name> node tools/stills.mjs <dir> 0.5 <scene ids>` and `tools/sheet.sh`.

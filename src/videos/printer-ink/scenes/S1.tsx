@@ -1,12 +1,12 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
-import {C, DISPLAY, MONO, BODY} from '../theme';
-import {useBeat, pop, ramp, lerp, wobble} from '../anim';
-import {Headline, Label, Stage, Sfx} from '../components/Frame';
-import {G, Drop, Champagne, Page, Printer, Dialog, Bottle, Cartridge, Groceries, Razor, Blade, Tag, Coin} from '../components/Art';
-import {Actor} from '../characters/Actor';
-import {Doc} from '../characters/Props';
-import {TOP, FLOOR, PRESENTER} from './layout';
+import {C, DISPLAY, MONO, BODY} from '../../../theme';
+import {useBeat, pop, ramp, lerp, wobble} from '../../../anim';
+import {Headline, Label, Stage, Sfx} from '../../../components/Frame';
+import {G, Drop, Champagne, Page, Printer, Dialog, Bottle, Cartridge, Groceries, Razor, Blade, Tag, Coin} from '../../../components/Art';
+import {Actor} from '../../../characters/Actor';
+import {Doc} from '../../../characters/Props';
+import {TOP, FLOOR, PRESENTER} from '../../../components/layout';
 
 const P = PRESENTER;
 

@@ -1,0 +1,364 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Intro",
+  "text": "You find the ticket, $50, not bad."
+ },
+ {
+  "id": "s02",
+  "text": "Then you click checkout, a service fee, a facility fee, an order processing fee, tax."
+ },
+ {
+  "id": "s03",
+  "text": "Your $50 ticket now costs $70.70."
+ },
+ {
+  "id": "s04",
+  "text": "In April, 2026, a federal jury looked at the company behind a lot of those checkouts and found it had run an illegal monopoly."
+ },
+ {
+  "id": "s05",
+  "text": "During the trial, internal emails came out where two of its ticketing directors joked about the fees, saying the company was robbing them blind, them being you."
+ },
+ {
+  "id": "s06",
+  "text": "So where do those $20 actually go? And why do they keep growing when everybody hates them?"
+ },
+ {
+  "id": "s07",
+  "text": "To answer that, you have to follow the money one line at a time, and that trail ends up in a courtroom."
+ },
+ {
+  "id": "s08",
+  "chapter": "The Receipt",
+  "text": "Start with the receipt, because every line on it goes to someone different."
+ },
+ {
+  "id": "s09",
+  "text": "The ticket price itself, the face value, is set by the artist, the promoter, or the team. Ticketmaster says it keeps none of that."
+ },
+ {
+  "id": "s10",
+  "text": "The facility fee is set by the venue, and the venue keeps all of it."
+ },
+ {
+  "id": "s11",
+  "text": "The order processing fee is charged once per order, and Ticketmaster shares it with the venue or team."
+ },
+ {
+  "id": "s12",
+  "text": "Then there's the big one, the service fee. In our example, that's $10 charged on every single ticket. And our example is an extreme."
+ },
+ {
+  "id": "s13",
+  "text": "A local TV station in Tulsa priced out a few real orders. On one of them, the convenience fee alone was $26.60."
+ },
+ {
+  "id": "s14",
+  "text": "Add a $4 facility fee and a $3.75 processing fee, and the fees came to $34.35."
+ },
+ {
+  "id": "s15",
+  "text": "Two tickets to a local hockey game cost $60, with $16.75 in fees on top. That's more than a quarter extra."
+ },
+ {
+  "id": "s16",
+  "text": "Two tickets to the orchestra at the city's performing arts center cost $50, with $7 in fees, same town, and a much smaller receipt."
+ },
+ {
+  "id": "s17",
+  "text": "At the expensive end, the numbers get bigger. One writer who follows the ticketing business pulled up a US concert ticket with a face value of $206."
+ },
+ {
+  "id": "s18",
+  "text": "The service fee on that one ticket was $37.55, plus a $6 order processing fee."
+ },
+ {
+  "id": "s19",
+  "text": "Ticketmaster says its fees pay for real things, customer service, site security, payment costs, event staff, and box offices. Those costs exist."
+ },
+ {
+  "id": "s20",
+  "text": "But it also says the service fee is shared. Shared with who?"
+ },
+ {
+  "id": "s21",
+  "chapter": "Shared With Who?",
+  "text": "Ticketmaster's own help page answers that. Venues and teams get a share of the fees in exchange for the rights to sell their tickets."
+ },
+ {
+  "id": "s22",
+  "text": "It also says the share it keeps for itself is different for every event, so the same $10 fee can be split very differently depending on the building you're walking into."
+ },
+ {
+  "id": "s23",
+  "text": "Think about what that does. A venue picks one official ticket seller."
+ },
+ {
+  "id": "s24",
+  "text": "Say two companies want that deal. One offers lower fees for fans. The other offers the venue a bigger slice of every fee it collects."
+ },
+ {
+  "id": "s25",
+  "text": "Which one do you think the venue picks?"
+ },
+ {
+  "id": "s26",
+  "text": "The ticket companies are competing for the venue's signature, and you don't get a vote."
+ },
+ {
+  "id": "s27",
+  "text": "The offer that shares more with the building tends to win, and that money has to come from somewhere."
+ },
+ {
+  "id": "s28",
+  "text": "Reporting on contracts from 26 publicly-owned venues points the same way. When Ticketmaster gave up revenue in those deals, it raised its own per-ticket service charges to win it back."
+ },
+ {
+  "id": "s29",
+  "text": "The facility charge has its own logic. One ticketing writer described it pretty bluntly. It's extra revenue for the venue because the venue can demand it."
+ },
+ {
+  "id": "s30",
+  "text": "In most markets, competition pushes prices down. In ticketing, it can push fees up."
+ },
+ {
+  "id": "s31",
+  "chapter": "One Door",
+  "text": "Once that contract is signed, you've got one door. You buy from the venue's official seller or you try the resale market where the price is often higher and the fees look much the same."
+ },
+ {
+  "id": "s32",
+  "text": "At most stores, if you don't like the checkout, you walk to the shop next door. Here, the shop next door doesn't sell this concert."
+ },
+ {
+  "id": "s33",
+  "text": "So how much of the market sits behind Ticketmaster's door?"
+ },
+ {
+  "id": "s34",
+  "text": "At the trial, the state's lawyer argued it was 86% of primary concert ticketing in the US. Count sports as well, and it was still 73%."
+ },
+ {
+  "id": "s35",
+  "text": "And it gets stranger. Ticketmaster's parent company, Live Nation, also promotes tours and runs venues."
+ },
+ {
+  "id": "s36",
+  "text": "When the Justice Department and dozens of states sued in 2024, that was the heart of the complaint. One company controlling the ticketing, the concert booking, the venues, and the promotion."
+ },
+ {
+  "id": "s37",
+  "text": "So on some nights, the promoter, the building, and the ticket seller splitting your fees can all be the same company."
+ },
+ {
+  "id": "s38",
+  "text": "But fees are only half the bill. There's one more layer. And this one changes the price of the ticket itself."
+ },
+ {
+  "id": "s39",
+  "chapter": "Dynamic Pricing",
+  "text": "Ticketmaster uses dynamic pricing. The face value of a ticket can change based on demand."
+ },
+ {
+  "id": "s40",
+  "text": "And prices have been climbing. Across the top 100 tours in North America, the average ticket price rose more than 17% between 2019 and 2022, according to Polestar."
+ },
+ {
+  "id": "s41",
+  "text": "Now look at how the service fee works. On a lot of tickets, it scales with the price. The higher the ticket, the higher the fee."
+ },
+ {
+  "id": "s42",
+  "text": "Let's make it simple. Say the service fee is 20%. A $50 ticket carries a $10 fee."
+ },
+ {
+  "id": "s43",
+  "text": "Then demand spikes, and the same seat jumps to $100. Now the fee is 20. It's the same seat and the same click, and the fee just doubled."
+ },
+ {
+  "id": "s44",
+  "text": "So when demand pushes the price up, everyone sharing that fee gets a raise too. Nobody had to touch a single fee for that to happen."
+ },
+ {
+  "id": "s45",
+  "chapter": "Resale",
+  "text": "And then there's the ticket you didn't get. When a huge tour goes on sale, the fans aren't the only ones in the queue."
+ },
+ {
+  "id": "s46",
+  "text": "When Taylor Swift's eras tour went on sale, Ticketmaster said bots and other buyers without a pre-sale code logged on anyway."
+ },
+ {
+  "id": "s47",
+  "text": "And plenty of those tickets ended up resold at much higher prices. At one point, the average eras ticket on the resale market cost $2,424, according to a CBS report."
+ },
+ {
+  "id": "s48",
+  "text": "The artist set the face value once. Everything above it went somewhere else, and resale sites charged their own fees on top, often just as heavy as the ones at the official seller."
+ },
+ {
+  "id": "s49",
+  "text": "So if you miss the first sale, you don't escape the fees. You pay a bigger price, and then you pay fees on that bigger price."
+ },
+ {
+  "id": "s50",
+  "text": "The era's mess even reached Washington. US senators questioned whether the ticket sellers really put customers first,"
+ },
+ {
+  "id": "s51",
+  "text": "and some of them suggested Live Nation and Ticketmaster should go their separate ways. Remember that idea, it comes back."
+ },
+ {
+  "id": "s52",
+  "text": "Meanwhile, for years, you couldn't even see most of those charges until the very last screen. That part at least has changed, sort of."
+ },
+ {
+  "id": "s53",
+  "chapter": "Hidden Fees",
+  "text": "Regulators did step in. In the US, a federal rule now makes ticket sellers show the full price, fees included up front."
+ },
+ {
+  "id": "s54",
+  "text": "Which is nice. You now see the $70 on the first screen instead of the last one."
+ },
+ {
+  "id": "s55",
+  "text": "Tick pick, a reseller that sells without buyer fees. So keep that in mind. Estimates buyers still pay effective fees of around 27% of the base ticket price."
+ },
+ {
+  "id": "s56",
+  "text": "And it isn't only an American problem."
+ },
+ {
+  "id": "s57",
+  "text": "One British writer broke down a single UK ticket, a 10 pound service charge, a two pound 25 facility charge, and a two pound 75 handling fee. That's just under 20% of the face value."
+ },
+ {
+  "id": "s58",
+  "text": "Again, a survey this year by the Mobile Network ID Mobile asked Britons about hidden fees in general. Ticketing companies came out as the worst offenders, ahead of energy companies and insurers."
+ },
+ {
+  "id": "s59",
+  "text": "People estimated they lose about 126 pounds a year to hidden fees and surprise charges. In Scotland, it was closer to 147."
+ },
+ {
+  "id": "s60",
+  "text": "72% said it's got worse over the past five years. And 65% said they feel, in their words, mugged off by British business."
+ },
+ {
+  "id": "s61",
+  "text": "So what would it actually take to make a fee smaller?"
+ },
+ {
+  "id": "s62",
+  "chapter": "The Trial",
+  "text": "In March, 2026, the US Justice Department settled its case against Live Nation in the middle of the trial."
+ },
+ {
+  "id": "s63",
+  "text": "The deal set up a 280 million dollar fund for the states that signed on."
+ },
+ {
+  "id": "s64",
+  "text": "And it caps Ticketmaster's service fee at 15% of face value. But only at amphitheaters Live Nation owns, operates, or controls."
+ },
+ {
+  "id": "s65",
+  "text": "The timing raised eyebrows."
+ },
+ {
+  "id": "s66",
+  "text": "The deal came six days into the trial after a face to face meeting between Live Nation's CEO, Michael Rapinoe, and the acting head of the Justice Department's antitrust division."
+ },
+ {
+  "id": "s67",
+  "text": "Senators later raised concerns about how it came about, including the ousting of the previous antitrust chief, Gail Slater."
+ },
+ {
+  "id": "s68",
+  "text": "33 states and Washington DC refused to settle. They kept going. On April 15th, the jury sided with them on every claim."
+ },
+ {
+  "id": "s69",
+  "text": "It found that Live Nation and Ticketmaster had illegally kept a monopoly. And that fans in 22 states were overcharged $1.72 per ticket at major concert venues."
+ },
+ {
+  "id": "s70",
+  "text": "$1.72 sounds small. Now multiply it by every concert ticket sold at those venues."
+ },
+ {
+  "id": "s71",
+  "text": "The states are asking for up to $700 million in damages. And under US antitrust law, damages like that can be tripled."
+ },
+ {
+  "id": "s72",
+  "text": "Investors noticed. Right after the verdict, shares of rival ticket sellers went up. Vivid seats rose 9.3% and StubHub 3.5."
+ },
+ {
+  "id": "s73",
+  "text": "Live Nation says the verdict isn't the last word, and it's challenging it."
+ },
+ {
+  "id": "s74",
+  "text": "Next comes a separate trial with no jury, where the judge decides the penalty and the fix, including whether Live Nation has to sell Ticketmaster."
+ },
+ {
+  "id": "s75",
+  "text": "That's the same breakup senators floated after the era's tour. Even if it happens, one antitrust scholar told NPR not to expect it this year."
+ },
+ {
+  "id": "s76",
+  "text": "So every fee on your receipt has someone on the other end who wants it there. The venue, the promoter, and the ticket seller each take a slice."
+ },
+ {
+  "id": "s77",
+  "text": "At checkout, the one person without a slice is the one paying."
+ },
+ {
+  "id": "s78",
+  "chapter": "How To Pay Less",
+  "text": "OK, here's how you pay less. First, the box office. Buying in person at the venue often skips the biggest online fees."
+ },
+ {
+  "id": "s79",
+  "text": "When CBS checked venues in Minneapolis, one box office added only a $2 facility fee."
+ },
+ {
+  "id": "s80",
+  "text": "It depends on the venue, though. Target Center charges a $2 to $3 facility fee on every ticket, however you buy it."
+ },
+ {
+  "id": "s81",
+  "text": "And at venues that sell through AXS, the service fees only apply when you buy on the website, so check how your venue sells before the sale starts."
+ },
+ {
+  "id": "s82",
+  "text": "Second, buy for the whole group in one order. Order processing fees typically run $3 to $10, and they're charged once per order. Four friends checking out separately pay it four times."
+ },
+ {
+  "id": "s83",
+  "text": "Third, compare all in prices. Fees now have to be shown up front, so put the official seller and the resale sites side by side on the final number."
+ },
+ {
+  "id": "s84",
+  "text": "And pick your maximum before the sale opens, so the countdown timer doesn't pick it for you."
+ },
+ {
+  "id": "s85",
+  "text": "None of this fixes the system. It just means the system gets a little less of your money."
+ },
+ {
+  "id": "s86",
+  "chapter": "Outro",
+  "text": "So the next time checkout adds $20 to a $50 ticket, you'll know exactly where every part of it goes."
+ },
+ {
+  "id": "s87",
+  "text": "It's not broken. It's working as intended."
+ },
+ {
+  "id": "s88",
+  "text": "Why is it that you haven't subscribed yet?"
+ }
+]

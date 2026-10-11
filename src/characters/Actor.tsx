@@ -122,7 +122,7 @@ export const Actor: React.FC<{
         const p = spring({frame: frame - e.f, fps, config: {damping: 10, stiffness: 200}});
         const gone = e.d ? interpolate(frame, [e.f + e.d, e.f + e.d + 6], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1;
         return frame >= e.f ? (
-          <g key={i} transform={flip ? 'scale(-1 1)' : undefined} opacity={gone}>
+          <g key={i} transform={`translate(${pose.x} ${pose.y})${flip ? ' scale(-1 1)' : ''}`} opacity={gone}>
             <EmoteMark kind={e.kind} p={p} frame={frame} />
           </g>
         ) : null;

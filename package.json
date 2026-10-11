@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render src/index.ts PrinterInk out/printer-ink.mp4",
-    "still": "remotion still src/index.ts PrinterInk out/still.png"
+    "render": "remotion render src/index.ts ConcertFees out/concert-fees.mp4",
+    "still": "remotion still src/index.ts ConcertFees out/still.png"
   },
   "dependencies": {
     "@remotion/cli": "4.0.534",
