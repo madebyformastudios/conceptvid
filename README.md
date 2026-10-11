@@ -34,3 +34,12 @@ npm run render      # out/printer-ink.mp4
 2. Transcribe it with word timestamps using whisper.cpp:
    `whisper-cli -m ggml-base.en.bin -f vo.wav -ojf -ml 1 -sow -of vo` (feed it a 16 kHz mono WAV).
 3. Run `python3 tools/align.py vo.json <total-seconds>`. This rewrites `src/words.json`, and every scene re-times itself.
+
+## Cartoon cut (v2)
+
+The video mixes two layers:
+
+- **Story scenes:** code-drawn puppet characters (`src/characters/`: rig, outfits, acting and camera) on bright cartoon sets that Google Flow generated empty (`public/sets/`, prompts in `shots/sets.py`). Characters blink, breathe, walk, react and hold props, all keyed to spoken words.
+- **Explainer scenes:** the infographic scenes from the first cut (`src/scenes/`), with the cast stepping in as presenters.
+
+`src/toon/T1–T3.tsx` hold the cartoon scenes; a scene defined there replaces the infographic version of the same id. Run `npx remotion still src/index.ts CastSheet out/cast.png` to see the whole cast.

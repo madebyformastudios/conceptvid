@@ -14,7 +14,11 @@ const serveUrl = await bundle({entryPoint: path.resolve('src/index.ts')});
 const composition = await selectComposition({serveUrl, id: 'PrinterInk'});
 for (const s of words.scenes) {
   if (only && !only.includes(s.id)) continue;
-  const frame = Math.round(s.end * 30) - 12;
-  await renderStill({serveUrl, composition, frame, scale, output: path.join(out, `${s.id}.png`)});
-  console.log(s.id, frame);
+  // FRACS=0.5,0.95 renders several moments per scene
+  const fracs = (process.env.FRACS ?? '').split(',').filter(Boolean).map(Number);
+  const frames = fracs.length ? fracs.map((f) => Math.round((s.start + (s.end - s.start) * f) * 30)) : [Math.round(s.end * 30) - 12];
+  for (const [i, frame] of frames.entries()) {
+    await renderStill({serveUrl, composition, frame, scale, output: path.join(out, fracs.length ? `${s.id}-${i}.png` : `${s.id}.png`)});
+  }
+  console.log(s.id, frames.join(','));
 }

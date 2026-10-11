@@ -137,13 +137,13 @@ export const Page: React.FC<Pos & {title?: string; lines?: number; accent?: stri
 );
 
 /* ---------- Champagne glass + bottle ---------- */
-export const Champagne: React.FC<Pos & {fill?: number}> = ({fill = 1, ...p}) => (
+export const Champagne: React.FC<Pos & {fill?: number; liquid?: string}> = ({fill = 1, liquid = C.yellow, ...p}) => (
   <G {...p}>
     <clipPath id="flute">
       <path d="M-55,-200 L55,-200 L45,-20 Q0,20 -45,-20 Z" />
     </clipPath>
     <path d="M-55,-200 L55,-200 L45,-20 Q0,20 -45,-20 Z" fill={C.white} />
-    <rect x={-60} y={-20 - 180 * fill} width={120} height={200} fill={C.yellow} clipPath="url(#flute)" />
+    <rect x={-60} y={-20 - 180 * fill} width={120} height={200} fill={liquid} clipPath="url(#flute)" />
     {[0, 1, 2].map((i) => (
       <circle key={i} cx={-15 + i * 15} cy={-60 - i * 35} r={6} fill={C.white} opacity={fill > 0.2 ? 0.9 : 0} />
     ))}

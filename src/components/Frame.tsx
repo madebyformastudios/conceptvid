@@ -83,18 +83,21 @@ export const Headline: React.FC<{
   stagger?: number;
   color?: string;
   hl?: string;
-}> = ({text, start, x = W / 2, y = 160, size = 84, align = 'center', width = 1600, stagger = 3, color = C.ink, hl = C.yellow}) => {
+  card?: boolean;
+}> = ({text, start, x = W / 2, y = 160, size = 84, align = 'center', width = 1600, stagger = 3, color = C.ink, hl = C.yellow, card}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const words = text.split(' ');
   const left = align === 'center' ? x - width / 2 : align === 'right' ? x - width : x;
-  return (
+  const cardP = card ? pop(frame, fps, start - 2, 14) : 1;
+  const inner = (
     <div
       style={{
-        position: 'absolute',
-        left,
-        top: y,
-        width,
+        position: card ? 'relative' : 'absolute',
+        left: card ? undefined : left,
+        top: card ? undefined : y,
+        width: card ? undefined : width,
+        maxWidth: card ? width : undefined,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
@@ -142,6 +145,24 @@ export const Headline: React.FC<{
           </span>
         );
       })}
+    </div>
+  );
+  if (!card) return inner;
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center'}}>
+      <div
+        style={{
+          background: C.paper,
+          border: `6px solid ${C.ink}`,
+          borderRadius: 18,
+          boxShadow: `8px 8px 0 ${C.ink}`,
+          padding: `${size * 0.16}px ${size * 0.42}px ${size * 0.22}px`,
+          transform: `scale(${0.85 + cardP * 0.15}) rotate(${(1 - cardP) * -3}deg)`,
+          opacity: Math.min(1, cardP * 2),
+        }}
+      >
+        {inner}
+      </div>
     </div>
   );
 };
