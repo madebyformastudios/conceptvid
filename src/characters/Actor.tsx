@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig, spring} from 'remotion';
+import {AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig, spring} from 'remotion';
 import {BASE, BoilFilter, INKLINE, Pose, mix} from './Rig';
 import {LOOKS, Toon, Who} from './Toon';
 import {DISPLAY} from '../theme';
@@ -160,13 +160,6 @@ export const Cam: React.FC<{keys: CamKey[]; children: React.ReactNode}> = ({keys
   const t = useCam(keys);
   return <AbsoluteFill style={{transform: t, transformOrigin: '0 0'}}>{children}</AbsoluteFill>;
 };
-
-/* A Flow-generated background set. */
-export const Backdrop: React.FC<{name: string; dim?: number}> = ({name, dim = 0}) => (
-  <AbsoluteFill>
-    <Img src={staticFile(`sets/${name}.jpeg`)} style={{width: '100%', height: '100%', objectFit: 'cover', filter: dim ? `brightness(${1 - dim})` : undefined}} />
-  </AbsoluteFill>
-);
 
 /* Full-frame SVG layer for actors and props, in the same 1920x1080 space as the backdrop. */
 export const Layer: React.FC<{children: React.ReactNode}> = ({children}) => (

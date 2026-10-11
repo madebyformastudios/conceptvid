@@ -35,7 +35,7 @@ export const Video: React.FC = () => {
         s.chapter && i > 0 ? (
           <Sequence key={`sw${s.id}`} from={starts[i] - Math.round(SWIPE / 2)} durationInFrames={SWIPE} name="print swipe">
             <PrintSwipe len={SWIPE} />
-            <Sfx name="whoosh" at={0} volume={0.3} />
+            <Sfx name="whoosh" at={0} volume={0.5} />
           </Sequence>
         ) : null,
       )}

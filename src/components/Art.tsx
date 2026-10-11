@@ -373,8 +373,8 @@ export const Arrow: React.FC<{x1: number; y1: number; x2: number; y2: number; t?
 /* ---------- Stamp ---------- */
 export const Stamp: React.FC<Pos & {text: string; color?: string}> = ({text, color = C.red, ...p}) => (
   <G {...p}>
-    <rect x={-text.length * 22 - 40} y={-60} width={text.length * 44 + 80} height={120} rx={14} fill="none" stroke={color} strokeWidth={10} />
-    <rect x={-text.length * 22 - 26} y={-46} width={text.length * 44 + 52} height={92} rx={8} fill="none" stroke={color} strokeWidth={4} />
+    <rect x={-text.length * 25 - 40} y={-60} width={text.length * 50 + 80} height={120} rx={14} fill="none" stroke={color} strokeWidth={10} />
+    <rect x={-text.length * 25 - 26} y={-46} width={text.length * 50 + 52} height={92} rx={8} fill="none" stroke={color} strokeWidth={4} />
     <text y={24} textAnchor="middle" fontFamily={DISPLAY} fontSize={66} fill={color} letterSpacing={4}>
       {text}
     </text>

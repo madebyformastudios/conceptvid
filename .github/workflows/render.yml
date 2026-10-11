@@ -45,6 +45,11 @@ jobs:
       - name: Render video
         run: npx remotion render src/index.ts PrinterInk out/printer-ink.mp4 --codec=h264 --crf=18 --audio-bitrate=320k --concurrency=100% --log=info
 
+      - name: Normalize loudness for YouTube (-14 LUFS)
+        run: |
+          npx remotion ffmpeg -v error -y -i out/printer-ink.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 256k out/normalized.mp4
+          mv out/normalized.mp4 out/printer-ink.mp4
+
       - name: Render thumbnail frame
         run: npx remotion still src/index.ts PrinterInk out/thumbnail-frame.png --frame=95
 

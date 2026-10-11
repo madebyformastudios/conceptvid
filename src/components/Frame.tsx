@@ -247,8 +247,9 @@ export const SceneShell: React.FC<{duration: number; last?: boolean; children: R
 };
 
 /* One-shot sound effect from public/sfx, started at frame `at` of the current sequence. */
-export const Sfx: React.FC<{name: 'whoosh' | 'pop' | 'click' | 'thud' | 'error' | 'ding' | 'cash'; at: number; volume?: number}> = ({name, at, volume = 0.35}) => (
-  <Sequence from={Math.round(at)} durationInFrames={45} layout="none" name={`sfx ${name}`}>
-    <Audio src={staticFile(`sfx/${name}.wav`)} volume={volume} />
+// Effects are pre-mastered quiet (-14 dBFS peaks); `volume` is relative, 1 = as mastered.
+export const Sfx: React.FC<{name: 'whoosh' | 'pop' | 'click' | 'thud' | 'error' | 'ding' | 'cash'; at: number; volume?: number}> = ({name, at, volume = 0.6}) => (
+  <Sequence from={Math.max(0, Math.round(at))} durationInFrames={45} layout="none" name={`sfx ${name}`}>
+    <Audio src={staticFile(`sfx/${name}.wav`)} volume={Math.min(1, volume)} />
   </Sequence>
 );

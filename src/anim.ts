@@ -20,6 +20,8 @@ export const wobble = (f: number, amp = 1, speed = 0.08) => Math.sin(f * speed) 
 type Ctx = {text: string; duration: number; words: [number, number][]};
 export const SceneCtx = createContext<Ctx>({text: '', duration: 1, words: []});
 
+const LEAD = 4;
+
 // Frame-accurate beats keyed to the script: at('cyan') -> frame the narrator says "cyan".
 export const useBeat = () => {
   const {text, duration, words} = useContext(SceneCtx);
@@ -31,7 +33,8 @@ export const useBeat = () => {
     if (idx < 0) throw new Error(`Beat "${phrase}" not found in: ${text}`);
     let f = words[0]?.[1] ?? 0;
     for (const [c, t] of words) if (c <= idx) f = t;
-    return Math.max(0, f + offset);
+    // Fire slightly early so a pop-in peaks on the word, not after it.
+    return Math.max(0, f + offset - LEAD);
   };
   return {frame, fps, duration, at};
 };

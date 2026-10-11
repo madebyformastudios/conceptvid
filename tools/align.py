@@ -50,6 +50,34 @@ for i, t in enumerate(times):
             st = times[prev][1] + (times[nxt][0] - times[prev][1]) * f
             times[i] = (st, st)
 
+# Snap word starts to real speech onsets: whisper smears pauses into the next word.
+import subprocess, struct, math
+pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", str(ROOT / "public/voiceover.mp3"), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],
+                     capture_output=True, check=True).stdout
+samples = struct.unpack(f"<{len(pcm)//2}h", pcm)
+HOP = 160  # 10 ms
+rms = [math.sqrt(sum(x * x for x in samples[i:i + HOP]) / HOP) for i in range(0, len(samples) - HOP, HOP)]
+peak = max(rms)
+loud = [r > peak * 0.06 for r in rms]
+
+def onset(t):
+    """If t sits in (or right before) silence, move it to where speech resumes."""
+    i = int(t * 100)
+    if i >= len(loud):
+        return t
+    if loud[i] and (i < 3 or loud[i - 3]):
+        # already speaking; walk back to the true onset if it began up to 120 ms earlier
+        j = i
+        while j > 0 and loud[j - 1] and i - j < 12:
+            j -= 1
+        return j / 100 if not loud[max(0, j - 1)] else t
+    j = i
+    while j < len(loud) and not loud[j] and j - i < 80:
+        j += 1
+    return j / 100 if j < len(loud) and j - i < 80 else t
+
+times = [(onset(st), en) for st, en in times]
+
 out = []
 for si, s in enumerate(scenes):
     idx = [i for i, w in enumerate(words) if w[0] == si]

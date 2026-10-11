@@ -9,7 +9,7 @@ A 2D infographic explainer built with [Remotion](https://remotion.dev). Every vi
 | Narration | `public/voiceover.mp3` |
 | Script, split into 30 scenes and 9 chapters | `src/script.json` |
 | Word-level timestamps for the narration | `src/words.json` (made by `tools/align.py`) |
-| Scenes | `src/scenes/A.tsx`, `B.tsx`, `C.tsx` |
+| Scenes | `src/scenes/S1.tsx`, `S2.tsx`, `S3.tsx` (grid in `layout.ts`) |
 | Illustration kit (printer, cartridges, chip…) | `src/components/Art.tsx` |
 | Background, headlines, transitions, SFX | `src/components/Frame.tsx` |
 | Synthesized sound effects | `public/sfx/*.wav` (made by `tools/sfx.py`) |
@@ -35,11 +35,8 @@ npm run render      # out/printer-ink.mp4
    `whisper-cli -m ggml-base.en.bin -f vo.wav -ojf -ml 1 -sow -of vo` (feed it a 16 kHz mono WAV).
 3. Run `python3 tools/align.py vo.json <total-seconds>`. This rewrites `src/words.json`, and every scene re-times itself.
 
-## Cartoon cut (v2)
+## Characters
 
-The video mixes two layers:
+Sam (the viewer) and Gerald (the printer exec) are code-drawn puppets (`src/characters/`) that act inside the infographics: they point, react, shrug and hold props, all keyed to spoken words. Scenes live in `src/scenes/S1–S3.tsx` and share a layout grid in `src/scenes/layout.ts`. Render `CastSheet` to see the whole cast.
 
-- **Story scenes:** code-drawn puppet characters (`src/characters/`: rig, outfits, acting and camera) on bright cartoon sets that Google Flow generated empty (`public/sets/`, prompts in `shots/sets.py`). Characters blink, breathe, walk, react and hold props, all keyed to spoken words.
-- **Explainer scenes:** the infographic scenes from the first cut (`src/scenes/`), with the cast stepping in as presenters.
-
-`src/toon/T1–T3.tsx` hold the cartoon scenes; a scene defined there replaces the infographic version of the same id. Run `npx remotion still src/index.ts CastSheet out/cast.png` to see the whole cast.
+Beats fire about 0.13 s before the word (`LEAD` in `src/anim.ts`) so animations peak as the word lands. `tools/align.py` snaps word starts to real speech onsets in the narration. The final MP4 is loudness-normalized to -14 LUFS for YouTube.
