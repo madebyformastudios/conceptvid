@@ -13,7 +13,10 @@ The user makes YouTube explainer videos. They write the script and record the vo
 ## What the user wants (style, settled after three iterations)
 
 1. **Flat CMYK "print shop" infographics** (cream paper, halftone dots, registration marks, cyan/magenta/yellow/ink palette, Archivo Black headlines, thick ink outlines, hard drop shadows). Kept from v1.
-2. **Code-drawn cartoon characters acting inside the infographics**: round white heads, dot eyes, stick-ish limbs. Sam (the viewer, mustard hoodie) and Gerald (smug printer exec, navy pinstripe suit, glasses) plus extras.
+2. **Code-drawn cartoon characters acting inside the infographics**: round white heads, dot eyes, stick-ish limbs. **Every video uses the same two leads** (the user's rule):
+   - **Sam** (`who="sam"`, friendly, mustard hoodie): the main character, standing in for the viewer, "you". Whenever the script says "you", it's Sam.
+   - **Gerald** (`who="gerald"`, business suit, glasses, smug): the antagonist, whoever profits off the viewer in that video's story (company, industry, system).
+   - Extras (scientist, salesman, cashier, crowd and so on) may support a scene but never take over these two roles.
 3. **No AI-generated backgrounds or story scenes.** v2 put the puppets on Google Flow-generated cartoon sets; the user disliked the backgrounds. Do not bring them back unless asked.
 4. Things must appear **on** the spoken word, not after it. The user noticed late cues before.
 5. Sound effects must be **soft and quiet** under the voice. The user called the first set "too loud and too harsh".

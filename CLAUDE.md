@@ -6,7 +6,8 @@ Remotion project that turns the user's script + recorded voiceover into a YouTub
 
 Hard rules from the user:
 - They record the voiceover; never generate TTS.
-- Style = flat CMYK infographics with the code-drawn cast (Sam, Gerald) acting inside them. No AI-generated backgrounds or story scenes.
+- Style = flat CMYK infographics with the code-drawn cast acting inside them. No AI-generated backgrounds or story scenes.
+- Every video uses the same two leads: **Sam** (friendly, mustard hoodie) is the main character and stands for the viewer, "you". **Gerald** (business suit, glasses) is the antagonist: the company or industry profiting off the viewer. Extras may appear, but never replace these two roles.
 - Visuals land on the spoken word (`at('phrase')` in `useBeat`); sound effects stay soft (`<Sfx volume 0.3-0.7>`).
 - Build things from scratch rather than using pre-made skills.
 - Ask before anything that spends Google Flow credits (video generation).

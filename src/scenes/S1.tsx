@@ -28,6 +28,14 @@ export const S01: React.FC = () => {
         <G x={1290} y={740} s={pop(frame, fps, tCh) * 1.4} r={wobble(frame + 20, 3, 0.05)} shadow>
           <Champagne fill={lerp(frame, [tCh, tCh + 14], [0, 0.85])} />
         </G>
+        <Actor who="sam" x={P.left} y={FLOOR} s={P.s} seed={40} enter={tInk - 2}
+          start={{lookX: 1, mouth: 'smile'}}
+          keys={[{f: tCh, p: {mouth: 'o', brows: 'raised', lShoulder: 60, lElbow: 80, rShoulder: -60, rElbow: -80}, d: 6, ease: 'out'}]}
+          emotes={[{f: tCh + 4, kind: '!', d: 40}]}
+        />
+        <Actor who="gerald" x={P.right} y={FLOOR} s={P.s} flip seed={41} enter={tCh}
+          start={{lookX: 1, mouth: 'smirk', brows: 'smug', lShoulder: 40, lElbow: -100, rShoulder: -40, rElbow: 100}}
+        />
       </Stage>
       <Sfx name="pop" at={tInk} volume={0.5} />
       <Sfx name="pop" at={tCh} volume={0.5} />
@@ -267,11 +275,11 @@ export const S07: React.FC = () => {
           <path d="M-190,-220 h20 v400 a30,30 0 0 0 30,30 h280 a30,30 0 0 0 30,-30 v-400 h20" fill="none" stroke={C.ink} strokeWidth={8} strokeLinejoin="round" />
           {[0, 1, 2, 3].map((i) => <line key={i} x1={110} x2={150} y1={-150 + i * 80} y2={-150 + i * 80} stroke={C.ink} strokeWidth={5} />)}
         </G>
-        <Actor who="scientist" x={P.left} y={FLOOR} s={P.s} seed={6}
-          start={{lookX: 1}}
+        <Actor who="gerald" x={P.left} y={FLOOR} s={P.s} seed={6}
+          start={{lookX: 1, mouth: 'smirk', brows: 'smug'}}
           keys={[
             {f: tRare, p: {lShoulder: 50, lElbow: -120, rShoulder: -50, rElbow: 120, brows: 'raised', mouth: 'flat'}, d: 8},
-            {f: at('water'), p: {lShoulder: 12, lElbow: -6, rShoulder: -100, rElbow: 0, mouth: 'smile', brows: 'neutral'}, d: 8},
+            {f: at('water'), p: {lShoulder: 12, lElbow: -6, rShoulder: -100, rElbow: 0, mouth: 'grin', brows: 'smug'}, d: 8},
           ]}
         />
       </Stage>
@@ -403,7 +411,7 @@ export const S10: React.FC = () => {
         <G x={1260} y={360} s={pop(frame, fps, tForever, 8)} r={wobble(frame, 3)}>
           <text textAnchor="middle" y={60} fontFamily={DISPLAY} fontSize={190} fill={C.magenta} stroke={C.ink} strokeWidth={6}>∞</text>
         </G>
-        <Actor who="salesman" x={960} y={FLOOR} s={0.66} seed={9}
+        <Actor who="gerald" x={960} y={FLOOR} s={0.66} seed={9}
           keys={[
             {f: tSell, p: {lShoulder: 100, lElbow: 0, lookX: -1, mouth: 'grin'}, d: 8},
             {f: tBlades, p: {lShoulder: 12, lElbow: -6, rShoulder: -100, rElbow: 0, lookX: 1}, d: 8},
