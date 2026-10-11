@@ -120,7 +120,7 @@ Review workflow that worked well: render stills, tile them into contact sheets w
 ## Open items / ideas
 
 - **Thumbnail**: the release's `thumbnail-frame.png` is just frame 95 (title card). A proper YouTube thumbnail has not been made; offer one (code-drawn with the cast, or a Flow prompt for the user).
-- Video 2 narration oddity to raise with the user: around 5:58 the line "Tick pick, a reseller that sells without buyer fees. So keep that in mind. Estimates buyers still pay..." sounds like a sentence went missing in the recording.
+- To drop a phrase from a narration: `python3 tools/cut.py public/<video>/voiceover.mp3 <from> <to> out/<x>/vo.json`, delete the words from script.json, re-run align.py (used for "So keep that in mind" in video 2, s55).
 - whisper stamps a sentence's last word at the start of the next sentence; align.py now pulls those back.
 - `tools/stills.mjs` writes wherever you point it; `out/` is git-ignored.
 
