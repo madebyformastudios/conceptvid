@@ -138,4 +138,10 @@ eyes, mouth) and a `data-pivot` on every joint. `tools/rig2json.py` converts the
 walking switches to the side view. `Actor` uses it for `who="sam"` when `CastStyle` has `samSvg: true`.
 Composition `SamSvgTest` = the first minute of ConcertFees with it on; `SvgSamSheet` shows every pose.
 Gerald is still code-drawn. (A first attempt with a single traced, unrigged SVG was replaced by this.)
-If the user adopts it: set `samSvg: true` for whole videos, and ask for a rigged Gerald in the same style.
+If the user adopts it: set `samSvg: true` for whole videos.
+
+**Rigged Gerald is saved for the next video** (user: "no need to use it now, save it for the upcoming vid"):
+`public/svg-test/gerald-front.svg` + `gerald-side.svg` (same group ids/pivots as Sam's, plus pinstripe
+`<pattern>` defs `pinF`/`pinFD`/`pinS`/`pinSD`), already converted to `src/characters/rig/gerald-*.json`.
+To use it: generalise `SvgSam.tsx` into a per-character renderer (pick JSON by `who`), make the pattern ids
+unique per instance, and tag Gerald's brow path in `tools/rig2json.py` (his brows are not stroke-width 2.4).
