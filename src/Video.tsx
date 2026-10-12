@@ -5,7 +5,7 @@ import {Paper, ChapterBadge, PrintSwipe, SceneShell, Sfx} from './components/Fra
 import {SceneCtx} from './anim';
 import {CastStyle} from './characters/RigChar';
 import {C, BODY, MONO} from './theme';
-import {VideoDef, chapterIndex, chapterName} from './timing';
+import {VideoDef, chapterIndex} from './timing';
 
 const SWIPE = 22;
 
@@ -55,7 +55,16 @@ export const Video: React.FC<{def: VideoDef}> = ({def}) => {
                 {Comp ? <Comp /> : <Draft text={s.text} id={s.id} />}
               </SceneShell>
             </SceneCtx.Provider>
-            {ch > 1 && i < scenes.length - 1 && <ChapterBadge n={ch - 1} name={chapterName(scenes, i)} start={0} />}
+          </Sequence>
+        );
+      })}
+      {scenes.map((s, i) => {
+        if (!s.chapter || i === 0) return null;
+        const next = scenes.findIndex((t, k) => k > i && t.chapter);
+        const to = next < 0 ? starts[scenes.length - 1] : starts[next];
+        return (
+          <Sequence key={`badge${s.id}`} from={starts[i]} durationInFrames={Math.max(1, to - starts[i])} name={`chapter badge ${s.chapter}`}>
+            <ChapterBadge n={chapterIndex(scenes, i) - 1} name={s.chapter} start={0} />
           </Sequence>
         );
       })}

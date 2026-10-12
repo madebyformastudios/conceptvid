@@ -291,7 +291,7 @@ export const S12: React.FC = () => {
       <Stage>
         <Actor who="vendor" x={1220} y={FLOOR} s={0.62} flip seed={11} enter={tStall} start={{lookX: 1, mouth: 'smile'}} />
         <G x={1220} y={FLOOR} s={pop(frame, fps, tStall - 6, 14) * 0.9}><Stall color={C.red} /></G>
-        <G x={1150} y={FLOOR - 200 * 0.9} s={0.6}><Handbag color={C.magenta} /></G>
+        <G x={1150} y={FLOOR - 200 * 0.9} s={pop(frame, fps, tStall + 6, 12) * 0.6}><Handbag color={C.magenta} /></G>
         <G x={700} y={headTop() - 110} s={pop(frame, fps, tHow, 11)}><Bubble text="How much is the bag?" tail="left" size={36} /></G>
         <Sam x={520} flip={false} seed={12} lHand={<HeldCamera />} start={{mouth: 'smile', lShoulder: 30, lElbow: -60}}
           keys={[{f: tHow, p: {...POINT, mouth: 'smile', brows: 'raised'}, d: 7, ease: 'out'}]} />
