@@ -26,7 +26,8 @@ def conv(el, in_head=False):
         elif k not in ('style',):
             a[camel(k)] = v
     head = in_head or a.get('id', '').endswith('-head')
-    if tag == 'path' and head and a.get('strokeWidth') == '2.4':
+    # eyebrows: the thick plain stroke inside the head (2.4 on Sam, 2.6 on Gerald)
+    if tag == 'path' and head and a.get('strokeWidth') in ('2.4', '2.6') and a.get('fill') == 'none':
         a['id'] = 'BROWS'
     node = {'t': tag, 'a': a}
     if pivot:
@@ -39,7 +40,7 @@ def conv(el, in_head=False):
 root = ET.parse(src).getroot()
 tree = conv(root)
 # the brow id takes the file's own prefix (f- or s-)
-prefix = 'f' if 'front' in root.attrib.get('id', '') else 's'
+prefix = 'f' if root.attrib.get('id', '').endswith('front') else 's'
 txt = json.dumps(tree).replace('"BROWS"', f'"{prefix}-brows"')
 open(dst, 'w').write(txt)
 print(dst, len(txt), 'bytes')

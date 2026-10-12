@@ -1,0 +1,399 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Intro",
+  "text": "You and your friend are on the same couch. Same app. Same ride home. You both hit request at the same moment."
+ },
+ {
+  "id": "s02",
+  "text": "Your friend gets fifty-four ninety-five. You get sixty-six twenty-seven."
+ },
+ {
+  "id": "s03",
+  "text": "Same car. Same street. Same moment. Eleven dollars apart."
+ },
+ {
+  "id": "s04",
+  "text": "That's not a made-up example. Business Insider had eleven coworkers request the same Uber, from the same office, at the same time. That's what came back."
+ },
+ {
+  "id": "s05",
+  "text": "And one of them said exactly what you're thinking right now. What did I do wrong?"
+ },
+ {
+  "id": "s06",
+  "text": "Uber says it doesn't price rides based on who you are, and blamed small things like slightly different pickup spots."
+ },
+ {
+  "id": "s07",
+  "text": "But the idea that the price on your screen might be built just for you is everywhere right now."
+ },
+ {
+  "id": "s08",
+  "text": "Walmart is publicly denying it's building technology to charge different shoppers different prices. Lawmakers are writing bans."
+ },
+ {
+  "id": "s09",
+  "text": "So is the internet quietly charging you more than your friend?"
+ },
+ {
+  "id": "s10",
+  "text": "By the end of this video, you'll know what your phone tells stores about you, the times companies got caught, and three things to do before you hit buy."
+ },
+ {
+  "id": "s11",
+  "chapter": "An Old Trick",
+  "text": "Charging different people different prices is old. Really old."
+ },
+ {
+  "id": "s12",
+  "text": "Picture a market stall on holiday. You ask how much the bag is."
+ },
+ {
+  "id": "s13",
+  "text": "The guy behind the table looks at your sunburn, your new sneakers and the big camera around your neck. Then he names a price."
+ },
+ {
+  "id": "s14",
+  "text": "The local next to you pays half."
+ },
+ {
+  "id": "s15",
+  "text": "Economists have a name for it: price discrimination."
+ },
+ {
+  "id": "s16",
+  "text": "And a lot of it we're fine with. Student discounts. Cheaper tickets for kids. The early bird special."
+ },
+ {
+  "id": "s17",
+  "text": "Here's what changed. The guy at the stall can only see your sneakers. Your phone can see a lot more than that."
+ },
+ {
+  "id": "s18",
+  "text": "When the US Federal Trade Commission looked at companies that sell pricing tools to retailers, it listed the kind of data those tools can work with."
+ },
+ {
+  "id": "s19",
+  "text": "Where you are. What device you're on. What you bought before. Even how your mouse moves and how far you scroll down a page."
+ },
+ {
+  "id": "s20",
+  "text": "So the guy from the market stall now lives in your pocket. And he's very good at reading sneakers."
+ },
+ {
+  "id": "s21",
+  "chapter": "Where You Are",
+  "text": "Sounds paranoid? Then let's go to a parking lot in Minnesota."
+ },
+ {
+  "id": "s22",
+  "text": "In 2019, a viewer sent a tip to a TV station in Minneapolis called KARE 11. Something was off with the Target app. So the station tested it."
+ },
+ {
+  "id": "s23",
+  "text": "They looked up a Samsung TV in the app. Four hundred ninety-nine dollars and ninety-nine cents."
+ },
+ {
+  "id": "s24",
+  "text": "Then they drove to a Target store, pulled into the parking lot and checked again."
+ },
+ {
+  "id": "s25",
+  "text": "Five hundred ninety-nine ninety-nine. A hundred dollars more, because the phone was now sitting next to the store."
+ },
+ {
+  "id": "s26",
+  "text": "They tried it with ten random products. The same list was two hundred sixty-two dollars cheaper in the parking lot than inside the store."
+ },
+ {
+  "id": "s27",
+  "text": "Target's explanation was simple. Inside a store, the app shows the store price. Outside, it shows the online price."
+ },
+ {
+  "id": "s28",
+  "text": "And it said it would match any lower price a customer found."
+ },
+ {
+  "id": "s29",
+  "text": "Which is fair. It also means the moment you're standing in the aisle, holding the thing you drove there for, is the moment the price goes up."
+ },
+ {
+  "id": "s30",
+  "text": "A business professor at the University of Minnesota told the station it looked like an algorithm charging more to shoppers who were already close to the store."
+ },
+ {
+  "id": "s31",
+  "text": "And it makes sense: once you're standing in the store, you're not driving home to save a few bucks."
+ },
+ {
+  "id": "s32",
+  "text": "If you just thought about checking which of your apps know where you are, good instinct. Subscribe, because it gets weirder from here."
+ },
+ {
+  "id": "s33",
+  "chapter": "Who You Are",
+  "text": "That's where you are. But what about who you are?"
+ },
+ {
+  "id": "s34",
+  "text": "Back in 2012, the Wall Street Journal found that the travel site Orbitz had noticed something about its customers."
+ },
+ {
+  "id": "s35",
+  "text": "People booking on a Mac spent twenty to thirty dollars more per night on hotels."
+ },
+ {
+  "id": "s36",
+  "text": "So Orbitz started showing Mac users the more expensive hotels first."
+ },
+ {
+  "id": "s37",
+  "text": "To be fair, the prices themselves didn't change. The order did."
+ },
+ {
+  "id": "s38",
+  "text": "A Mac user and a Windows user could still book the same room for the same money. The Mac user just had to scroll past more fancy hotels to find it."
+ },
+ {
+  "id": "s39",
+  "text": "Same shop. Different shop window. Chosen by the logo on your laptop."
+ },
+ {
+  "id": "s40",
+  "text": "Now give that idea fourteen more years of data. One scenario in the FTC's study goes like this."
+ },
+ {
+  "id": "s41",
+  "text": "A store figures out you're a new parent from what you've been buying. Your recent searches suggest your baby is sick."
+ },
+ {
+  "id": "s42",
+  "text": "So it shows you a baby thermometer with fast delivery, at a premium price."
+ },
+ {
+  "id": "s43",
+  "text": "Think about the moment that's aimed at. It's late, you're exhausted and your kid has a fever. You are not comparing prices."
+ },
+ {
+  "id": "s44",
+  "text": "And the data can get very personal. Business Insider dug into patents filed by Uber."
+ },
+ {
+  "id": "s45",
+  "text": "One describes tracking how fast you type, the angle you hold your phone at, even how fast you walk."
+ },
+ {
+  "id": "s46",
+  "text": "Another says a rider who regularly stops near a daycare or school before going to an office can be identified as a single working parent."
+ },
+ {
+  "id": "s47",
+  "text": "Uber says those patents aren't in use, and that neither one is about pricing."
+ },
+ {
+  "id": "s48",
+  "text": "But they show how much a phone can give away without you typing a single word."
+ },
+ {
+  "id": "s49",
+  "chapter": "Caught Testing",
+  "text": "Still, patents and scenarios are just possibilities. What happens when someone actually checks the prices, item by item?"
+ },
+ {
+  "id": "s50",
+  "text": "At the end of 2025, Consumer Reports and a research group called the Groundwork Collaborative ran the Uber experiment again, but with groceries."
+ },
+ {
+  "id": "s51",
+  "text": "Shoppers in four US cities filled the same Instacart cart, from the same store, at the same time."
+ },
+ {
+  "id": "s52",
+  "text": "Nearly three out of four items showed different prices to different people. Some items had five different prices at once."
+ },
+ {
+  "id": "s53",
+  "text": "On basics like cereal, pasta and peanut butter, the gap between the cheapest and most expensive price averaged thirteen percent."
+ },
+ {
+  "id": "s54",
+  "text": "The whole cart came out about seven percent different."
+ },
+ {
+  "id": "s55",
+  "text": "And sometimes the sale price stayed the same while the original price above it changed, so the discount just looked bigger."
+ },
+ {
+  "id": "s56",
+  "text": "Seven percent doesn't sound like much. But for an average family of four, the researchers worked out it's a swing of about twelve hundred dollars a year."
+ },
+ {
+  "id": "s57",
+  "text": "Instacart's answer: these are random price tests, and the differences are negligible. It doesn't say it picks prices based on who you are."
+ },
+ {
+  "id": "s58",
+  "text": "Which is a strange kind of comfort. Whether it's your data or a coin flip, somebody in that test is paying more for peanut butter."
+ },
+ {
+  "id": "s59",
+  "text": "And they have no idea they're in a test."
+ },
+ {
+  "id": "s60",
+  "chapter": "The Vanishing Sticker",
+  "text": "So how did we end up here? Prices used to be a number on a sticker."
+ },
+ {
+  "id": "s61",
+  "text": "For most of history, a price was a sticker. Everyone saw the same number. That's changing, one screen at a time."
+ },
+ {
+  "id": "s62",
+  "text": "Uber's prices used to follow a simple formula. A base fare, plus a bit per minute and a bit per mile. Like a taxi meter."
+ },
+ {
+  "id": "s63",
+  "text": "Then Uber switched to upfront pricing. The app just shows you a number, and how that number is calculated isn't something you get to see."
+ },
+ {
+  "id": "s64",
+  "text": "Between 2018 and 2022, average Uber fares rose eighty-three percent, according to the data Business Insider found."
+ },
+ {
+  "id": "s65",
+  "text": "Uber points to inflation, insurance costs and a shortage of drivers. And in 2023, Uber posted its first ever yearly profit."
+ },
+ {
+  "id": "s66",
+  "text": "Airlines are heading the same way. Delta uses an AI system from a company called Fetcherr to set prices on part of its domestic flights."
+ },
+ {
+  "id": "s67",
+  "text": "It started around one percent, and Delta said it wanted to reach twenty percent by the end of 2025."
+ },
+ {
+  "id": "s68",
+  "text": "Delta says the system looks at demand, dates and fuel prices, not your personal data."
+ },
+ {
+  "id": "s69",
+  "text": "Three US senators still wrote to Delta. They worried AI could push each fare up to a customer's personal pain point. Their example was someone flying to a funeral."
+ },
+ {
+  "id": "s70",
+  "text": "And in stores, the paper price tag itself is disappearing. Walmart is putting digital labels on its shelves."
+ },
+ {
+  "id": "s71",
+  "text": "They're already in about twenty-three hundred stores, with every US store planned by the end of 2026."
+ },
+ {
+  "id": "s72",
+  "text": "This year it was also granted patents for systems that update prices automatically."
+ },
+ {
+  "id": "s73",
+  "text": "Walmart says a human manager has to approve every price change, and it says clearly it won't personalize prices for shoppers."
+ },
+ {
+  "id": "s74",
+  "text": "So nobody says they're doing it. But the screens are going up and the patents are filed."
+ },
+ {
+  "id": "s75",
+  "chapter": "The Pushback",
+  "text": "Is anyone actually stopping this? Yes. And it's happening fast."
+ },
+ {
+  "id": "s76",
+  "text": "In New York, a law now says companies have to tell you when your personal data helped set your price."
+ },
+ {
+  "id": "s77",
+  "text": "So if you open Uber there and scroll to the very bottom of a quote, you might see this line: This price was set by an algorithm using your personal data."
+ },
+ {
+  "id": "s78",
+  "text": "Uber told Business Insider the only personal data it uses there is your location. But the sentence is on the screen now."
+ },
+ {
+  "id": "s79",
+  "text": "Maryland went further. In April 2026, it became the first state to ban surveillance pricing at large grocery stores and delivery apps."
+ },
+ {
+  "id": "s80",
+  "text": "That law took effect on October first. Lawmakers in Colorado and Connecticut passed bills of their own a few weeks after Maryland."
+ },
+ {
+  "id": "s81",
+  "text": "People are paying attention too. In a poll done for a grocery workers' union, sixty-eight percent of Americans said they worry this will raise prices. Only five percent thought it would bring them down."
+ },
+ {
+  "id": "s82",
+  "text": "And here's the part nobody says out loud. A price used to be about the product: what it cost to make, plus a profit."
+ },
+ {
+  "id": "s83",
+  "text": "Personalized pricing flips that around. The price starts being about you. The most you'd be willing to pay, guessed from everything your phone gives away."
+ },
+ {
+  "id": "s84",
+  "text": "That's the part Gerald loves. He doesn't need to know what the TV is worth. He just needs to know what you're worth."
+ },
+ {
+  "id": "s85",
+  "chapter": "Pay Less",
+  "text": "Which brings us back to you and your friend on that couch. Here's how to stop being the one who pays more."
+ },
+ {
+  "id": "s86",
+  "text": "Three things. None of them take more than a minute."
+ },
+ {
+  "id": "s87",
+  "text": "First, use the trick from the start of this video. Before a big purchase, ask a friend to check the same price on their phone."
+ },
+ {
+  "id": "s88",
+  "text": "Or check it on two of your own devices, one logged in and one not. If the numbers are different, you just learned something."
+ },
+ {
+  "id": "s89",
+  "text": "Second, turn off location access for shopping apps. Set it to never, or ask every time."
+ },
+ {
+  "id": "s90",
+  "text": "That's the exact fix KARE 11 suggested for the Target app, and it means the app can't tell when you're standing in the store."
+ },
+ {
+  "id": "s91",
+  "text": "Third, use price matching. Target said it would match a lower price you find, and plenty of other stores do the same."
+ },
+ {
+  "id": "s92",
+  "text": "So if the app shows something cheaper than the shelf, show it at the register."
+ },
+ {
+  "id": "s93",
+  "text": "None of this beats the algorithm. It just makes it a lot harder for it to guess what you're worth."
+ },
+ {
+  "id": "s94",
+  "chapter": "Outro",
+  "text": "So, you and your friend. Same couch, same ride, eleven dollars apart."
+ },
+ {
+  "id": "s95",
+  "text": "Now you know it might not be anything you did. It might be where you were standing, the phone in your hand, what you bought last month, or just which test group you landed in."
+ },
+ {
+  "id": "s96",
+  "text": "It's not broken. It's working as intended."
+ },
+ {
+  "id": "s97",
+  "text": "And if you want to know who's pricing everything else in your life, hit subscribe. It costs exactly the same for everyone. For now."
+ }
+]

@@ -8,7 +8,8 @@ export type VideoDef = {
   scenes: SceneDef[];
   aligned: Aligned[];
   components: Record<string, React.FC>;
-  backdrop?: 'paper' | 'halftone'; // 'paper' = printer-ink look; 'halftone' = newer look with chapter accents
+  backdrop?: 'paper' | 'halftone';
+  rigged?: boolean; // Sam and Gerald from the user's rigged SVGs (src/characters/RigChar.tsx) // 'paper' = printer-ink look; 'halftone' = newer look with chapter accents
 };
 
 export const asAligned = (json: unknown) => (json as {total: number; scenes: Aligned[]}).scenes;

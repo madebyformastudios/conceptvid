@@ -1,6 +1,6 @@
 # Handover: conceptvid (YouTube explainer videos)
 
-Last updated 2026-10-11. Status: video 1 (printer ink, render-4) is approved. **Video 2 (concert fees, 9:51, 88 scenes) is built and waiting for the user's review in Remotion Studio before it is pushed/rendered.**
+Last updated 2026-10-11. Status: video 1 (printer ink, render-4) and video 2 (concert fees, render-5) are done. **Video 3 (`your-price`, surveillance pricing, 10:21, 97 scenes, rigged-SVG cast) is built and waiting for the user's review in Studio (composition `YourPrice`) before it is pushed.**
 
 ## What this project is
 
@@ -145,3 +145,14 @@ If the user adopts it: set `samSvg: true` for whole videos.
 `<pattern>` defs `pinF`/`pinFD`/`pinS`/`pinSD`), already converted to `src/characters/rig/gerald-*.json`.
 To use it: generalise `SvgSam.tsx` into a per-character renderer (pick JSON by `who`), make the pattern ids
 unique per instance, and tag Gerald's brow path in `tools/rig2json.py` (his brows are not stroke-width 2.4).
+
+## Video 3: your-price (2026-10-12)
+
+"Is the internet charging you more than your friend?" Script and narration came from the user. Choices the user made:
+rigged-SVG Sam and Gerald (`rigged: true` in the VideoDef), source tags only when the narration names the
+source (`SourceTag` in `src/videos/your-price/scenes/common.tsx`), and an animated subscribe button mid-video (s32)
+and at the end (s97). Extras are recoloured copies of the rigs (`VARIANTS` in `src/characters/RigChar.tsx`: friend,
+vendor, local, professor, senator), so the whole cast shares one style. Kit: `src/videos/your-price/kit.tsx`
+(ride quote, couch, car, stall, store, hotel rows, groceries, cart, shelf labels, plane, taxi meter, data icons).
+Illustrative numbers that are not from the script (e.g. $80/$40 at the stall, $89/$79 logged in/out) are labelled
+as examples by context only; keep any new ones clearly hypothetical.

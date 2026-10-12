@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {CastStyle, SvgSam} from './SvgSam';
+import {CastStyle, RigChar, RigWho, isRigged} from './RigChar';
 import {AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig, spring} from 'remotion';
 import {BASE, BoilFilter, INKLINE, Pose, mix} from './Rig';
 import {LOOKS, Toon, Who} from './Toon';
@@ -113,14 +113,14 @@ export const Actor: React.FC<{
   const outS = exit === undefined ? 1 : 1 - interpolate(frame, [exit, exit + 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   if (inS <= 0.001 || outS <= 0.001) return null;
   const id = `boil-${who}-${seed}`;
-  const svgSam = useContext(CastStyle).samSvg && who === 'sam';
+  const rigged = useContext(CastStyle).rigged && isRigged(who);
   return (
     <g transform={`translate(${x} ${y}) scale(${s * (flip ? -1 : 1) * inS} ${s * inS})`} opacity={outS} style={tint ? {filter: tint} : undefined}>
       <defs>
         <BoilFilter id={id} frame={frame + seed} />
       </defs>
-      {svgSam ? (
-        <SvgSam pose={pose} boil={id} walking={v > 0.4} dir={pose.x >= prevX ? 1 : -1} rHand={rHand} lHand={lHand} />
+      {rigged ? (
+        <RigChar who={who as RigWho} uid={`${who}-${seed}`} pose={pose} boil={id} walking={v > 0.4} dir={pose.x >= prevX ? 1 : -1} rHand={rHand} lHand={lHand} />
       ) : (
         <Toon look={LOOKS[who]} pose={pose} boil={id} rHand={rHand} lHand={lHand} />
       )}

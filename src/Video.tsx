@@ -3,6 +3,7 @@ import {AbsoluteFill, Audio, Sequence, staticFile, useVideoConfig} from 'remotio
 import {Backdrop, ACCENTS} from './components/Backdrop';
 import {Paper, ChapterBadge, PrintSwipe, SceneShell, Sfx} from './components/Frame';
 import {SceneCtx} from './anim';
+import {CastStyle} from './characters/RigChar';
 import {C, BODY, MONO} from './theme';
 import {VideoDef, chapterIndex, chapterName} from './timing';
 
@@ -23,6 +24,7 @@ export const Video: React.FC<{def: VideoDef}> = ({def}) => {
   const starts = aligned.map((a) => Math.round(a.start * fps));
   const ends = aligned.map((a) => Math.round(a.end * fps));
   return (
+    <CastStyle.Provider value={{rigged: !!def.rigged}}>
     <AbsoluteFill>
       {def.backdrop === 'halftone' ? (
         scenes.map((s, i) => {
@@ -66,5 +68,6 @@ export const Video: React.FC<{def: VideoDef}> = ({def}) => {
         ) : null,
       )}
     </AbsoluteFill>
+    </CastStyle.Provider>
   );
 };

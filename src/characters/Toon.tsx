@@ -225,6 +225,12 @@ export const LOOKS = {
   angry1: {top: 'tee', topColor: '#7FA86B', topShade: '#5E8750', legs: '#3F5574', shoes: '#FFFFFF', hair: 'short', hairColor: '#8A5A2B'},
   angry2: {top: 'hoodie', topColor: '#C46A9A', topShade: '#9E4F7B', legs: '#2F3D59', shoes: '#FFFFFF', hair: 'bun', hairColor: '#2B2320'},
   angry3: {top: 'shirt', topColor: '#E2A33F', topShade: '#B8822C', legs: '#4C5466', shoes: '#2A2A2E', hair: 'bald', hairColor: '#4A3326', glasses: true},
+  // code-drawn stand-ins for the rigged extras (see RigChar VARIANTS)
+  friend: {top: 'hoodie', topColor: '#3f9e96', topShade: '#2f7a73', legs: '#4a4a52', shoes: '#FFFFFF', hair: 'short', hairColor: '#1f1a18'},
+  vendor: {top: 'hoodie', topColor: '#c8553d', topShade: '#9c3f2c', legs: '#8a7a5a', shoes: '#4A3426', hair: 'short', hairColor: '#2b2320'},
+  local: {top: 'hoodie', topColor: '#6f9e4e', topShade: '#557c3a', legs: '#3F5574', shoes: '#FFFFFF', hair: 'messy', hairColor: '#7a4a2a'},
+  professor: {top: 'suit', topColor: '#6b4f36', topShade: '#50392a', tie: '#3d6b4f', legs: '#6b4f36', shoes: '#1E1E22', hair: 'slick', hairColor: '#e8e6e1', glasses: true},
+  senator: {top: 'suit', topColor: '#5a5f6e', topShade: '#464a57', tie: '#2f5f9e', legs: '#5a5f6e', shoes: '#1E1E22', hair: 'slick', hairColor: '#d9d4cc', glasses: true},
 } satisfies Record<string, Look>;
 
 export type Who = keyof typeof LOOKS;

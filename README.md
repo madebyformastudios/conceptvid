@@ -1,6 +1,6 @@
 # conceptvid
 
-YouTube explainers: *Why does printer ink cost more than champagne?* (`src/videos/printer-ink`) and *Why do concert tickets come with so many fees?* (`src/videos/concert-fees`). Each is a 2D infographic explainer built with [Remotion](https://remotion.dev). Every visual is drawn in code (SVG + React), with a flat print-shop look: paper, halftone dots, registration marks, and the four CMYK inks.
+YouTube explainers: *Why does printer ink cost more than champagne?* (`src/videos/printer-ink`) *Why do concert tickets come with so many fees?* (`src/videos/concert-fees`) and *Is the internet charging you more than your friend?* (`src/videos/your-price`, drawn with the user's rigged-SVG cast). Each is a 2D infographic explainer built with [Remotion](https://remotion.dev). Every visual is drawn in code (SVG + React), with a flat print-shop look: paper, halftone dots, registration marks, and the four CMYK inks.
 
 ## How it works
 
