@@ -120,7 +120,7 @@ export const Actor: React.FC<{
         <BoilFilter id={id} frame={frame + seed} />
       </defs>
       {svgSam ? (
-        <SvgSam pose={pose} uid={`sam-${seed}`} walking={v > 0.4} dir={pose.x >= prevX ? 1 : -1} rHand={rHand} lHand={lHand} />
+        <SvgSam pose={pose} boil={id} walking={v > 0.4} dir={pose.x >= prevX ? 1 : -1} rHand={rHand} lHand={lHand} />
       ) : (
         <Toon look={LOOKS[who]} pose={pose} boil={id} rHand={rHand} lHand={lHand} />
       )}
