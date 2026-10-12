@@ -127,3 +127,14 @@ Review workflow that worked well: render stills, tile them into contact sheets w
 ## Memory
 
 Claude's memory for this user lives in `~/.claude/projects/-Users-jlopes-untitled-folder-2/memory/` (style preferences and pipeline notes). Keep it in sync with this file.
+
+## Experiment: Sam from the user's turnaround SVG (2026-10-12)
+
+The user supplied `character.svg`, a traced three-view turnaround of a redesigned Sam (front, side, back),
+saved as `public/svg-test/sam-turnaround.svg` (background rect and C2PA metadata stripped).
+`src/characters/SvgSam.tsx` turns it into a cut-out puppet: clip paths split the front view into legs, torso,
+two arms (rotate at the shoulders, elbows folded in) and head (tilts at the neck); the printed face is painted
+over and redrawn (blinks, talks, all mouths/brows); walking swaps to the side view. It takes the same `Pose` as
+the Toon, and `Actor` uses it for `who="sam"` when `CastStyle` has `samSvg: true`.
+Composition `SamSvgTest` = the first minute of ConcertFees (s01-s11) with it on; `SvgSamSheet` shows every pose.
+Gerald is still the code-drawn version there. Limits: no elbow bends, small seam at the neck when the head tilts.
