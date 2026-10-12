@@ -7,6 +7,18 @@ import {Phone, Browser} from '../concert-fees/kit';
 import * as K from './kit';
 
 /* Still: every piece of this video's kit, for layout review. */
+/* Still: car and plane up close. */
+export const CarPlane: React.FC = () => (
+  <AbsoluteFill>
+    <Backdrop accent={C.cyan} second={C.magenta} />
+    <Stage>
+      <K.Car x={480} y={935} s={1.2} label="RIDE" />
+      <K.Car x={1350} y={935} s={0.9} color={C.red} />
+      <K.Plane x={1000} y={330} s={1.3} r={-4} />
+    </Stage>
+  </AbsoluteFill>
+);
+
 export const YourPriceKit: React.FC = () => {
   const frame = useCurrentFrame();
   return (

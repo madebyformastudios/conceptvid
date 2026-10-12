@@ -10,7 +10,7 @@ import {FPS, W, H} from './theme';
 import {printerInk} from './videos/printer-ink';
 import {concertFees} from './videos/concert-fees';
 import {yourPrice} from './videos/your-price';
-import {YourPriceKit} from './videos/your-price/KitSheet';
+import {YourPriceKit, CarPlane} from './videos/your-price/KitSheet';
 import {KitSheet} from './videos/concert-fees/KitSheet';
 
 // Props are serialized to JSON, so each video gets its own wrapper instead of passing `def` as a prop.
@@ -35,6 +35,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="PrinterInk" component={PrinterInkVideo} fps={FPS} width={W} height={H} durationInFrames={totalFrames(printerInk, FPS)} />
     <Composition id="KitSheet" component={KitSheet} fps={FPS} width={W} height={H} durationInFrames={30} />
     <Composition id="CastPose" component={CastPose} defaultProps={{who: 'sam' as const, pose: 'neutral'}} fps={FPS} width={560} height={720} durationInFrames={1} />
+    <Composition id="CarPlane" component={CarPlane} fps={FPS} width={W} height={H} durationInFrames={1} />
     <Composition id="YourPriceKit" component={YourPriceKit} fps={FPS} width={W} height={H} durationInFrames={30} />
     <Composition id="RigExtras" component={RigExtras} fps={FPS} width={W} height={H} durationInFrames={1} />
     <Composition id="RigSheet" component={RigSheet} fps={FPS} width={W} height={H} durationInFrames={1} />

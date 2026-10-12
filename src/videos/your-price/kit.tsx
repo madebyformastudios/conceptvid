@@ -44,25 +44,56 @@ export const Couch: React.FC<Pos & {w?: number; color?: string}> = ({w = 640, co
   </G>
 );
 
-/* ---------- Car (side view, facing right) ---------- */
-export const Car: React.FC<Pos & {color?: string; label?: string}> = ({color = C.ink, label, ...p}) => (
-  <G {...p}>
-    <path d="M-200,-40 L-190,-95 Q-180,-110 -150,-112 L-90,-115 L-40,-170 Q-30,-180 -10,-180 L90,-180 Q110,-180 125,-165 L175,-115 L205,-110 Q225,-105 225,-80 L225,-40 Z" fill={color} {...line} />
-    <path d="M-30,-160 L-75,-118 L40,-118 L40,-165 Z M55,-165 L55,-118 L150,-118 L110,-162 Z" fill="#CFE6F2" {...line} strokeWidth={5} />
-    {[-120, 140].map((x) => (
-      <g key={x}>
-        <circle cx={x} cy={-40} r={44} fill={C.ink} />
-        <circle cx={x} cy={-40} r={18} fill={C.soft} />
-      </g>
+/* ---------- Car (side view, facing right; wheels on y=0, ~490 long) ---------- */
+const Wheel: React.FC<{x: number}> = ({x}) => (
+  <g transform={`translate(${x} -46)`}>
+    <circle r={46} fill="#2B2A30" stroke={C.ink} strokeWidth={6} />
+    <circle r={27} fill="#C9CCD2" stroke={C.ink} strokeWidth={4} />
+    {[0, 72, 144, 216, 288].map((a) => (
+      <circle key={a} cx={Math.cos((a * Math.PI) / 180) * 16} cy={Math.sin((a * Math.PI) / 180) * 16} r={3.5} fill="#7A7E88" />
     ))}
-    {label && (
-      <g transform="translate(20 -200)">
-        <rect x={-60} y={-24} width={120} height={36} rx={8} fill={C.white} {...line} strokeWidth={4} />
-        <text y={2} textAnchor="middle" fontFamily={MONO} fontWeight={700} fontSize={22} fill={C.ink}>{label}</text>
-      </g>
-    )}
-  </G>
+    <circle r={8} fill="#7A7E88" stroke={C.ink} strokeWidth={3} />
+  </g>
 );
+
+export const Car: React.FC<Pos & {color?: string; label?: string}> = ({color = C.cyan, label, ...p}) => {
+  // one silhouette with both wheel arches cut out of the sill
+  const body =
+    'M-238,-48 L-240,-108 Q-240,-132 -216,-136 L-172,-142 C-150,-146 -128,-212 -88,-218 L40,-221 C72,-221 92,-204 128,-152 ' +
+    'L206,-142 Q240,-136 246,-108 L248,-56 Q248,-36 230,-36 L206,-36 A56,56 0 1 0 94,-36 L-94,-36 A56,56 0 1 0 -206,-36 L-222,-36 Q-238,-36 -238,-48 Z';
+  const glass = 'M-146,-146 C-128,-192 -110,-204 -84,-205 L36,-207 C58,-207 74,-194 106,-152 Z';
+  return (
+    <G {...p}>
+      <ellipse cx={0} cy={2} rx={235} ry={12} fill={C.ink} opacity={0.16} />
+      <path d={body} fill={color} {...line} />
+      {/* lighter band along the flank */}
+      <path d="M-232,-104 L244,-104 L245,-90 L-234,-90 Z" fill={C.white} opacity={0.22} />
+      <path d={glass} fill="#CFE6F2" {...line} strokeWidth={5} />
+      <path d="M-70,-196 L-40,-160 M-50,-200 L-28,-172" stroke={C.white} strokeWidth={6} strokeLinecap="round" opacity={0.8} />
+      <rect x={-26} y={-208} width={16} height={62} fill={color} stroke={C.ink} strokeWidth={5} />
+      {/* doors, handles, mirror */}
+      <path d="M-18,-146 L-20,-40 M104,-150 L112,-56" fill="none" stroke={C.ink} strokeWidth={4} strokeLinecap="round" />
+      <rect x={-6} y={-128} width={30} height={9} rx={4} fill={C.ink} />
+      <rect x={-128} y={-128} width={30} height={9} rx={4} fill={C.ink} />
+      <path d="M112,-158 Q126,-170 138,-162 L134,-150 Q122,-148 112,-158 Z" fill={color} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
+      {/* lights and bumpers */}
+      <path d="M226,-128 Q244,-126 246,-108 L230,-106 Q222,-116 226,-128 Z" fill={C.yellow} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
+      <rect x={-242} y={-126} width={16} height={26} rx={5} fill={C.red} stroke={C.ink} strokeWidth={4} />
+      <rect x={214} y={-62} width={40} height={22} rx={9} fill="#3A3F4B" stroke={C.ink} strokeWidth={4} />
+      <rect x={-246} y={-62} width={36} height={22} rx={9} fill="#3A3F4B" stroke={C.ink} strokeWidth={4} />
+      <Wheel x={-150} />
+      <Wheel x={150} />
+      {label && (
+        <g transform="translate(-24 -238)">
+          <rect x={-58} y={-22} width={116} height={34} rx={8} fill={C.white} {...line} strokeWidth={4} />
+          <text y={3} textAnchor="middle" fontFamily={MONO} fontWeight={700} fontSize={20} fill={C.ink}>
+            {label}
+          </text>
+        </g>
+      )}
+    </G>
+  );
+};
 
 /* ---------- Market stall ---------- */
 export const Stall: React.FC<Pos & {color?: string}> = ({color = C.red, ...p}) => (
@@ -361,17 +392,38 @@ export const Sticker: React.FC<Pos & {price: string; color?: string}> = ({price,
   </G>
 );
 
-/* ---------- Airplane (side, facing right) ---------- */
-export const Plane: React.FC<Pos & {color?: string}> = ({color = C.white, ...p}) => (
-  <G {...p}>
-    <path d="M-260,-10 Q-250,-50 -200,-50 L180,-50 Q260,-45 280,0 Q260,30 180,30 L-200,30 Q-250,30 -260,-10 Z" fill={color} {...line} />
-    <path d="M-40,-10 L-120,120 L-60,120 L60,-10 Z" fill={C.cyan} {...line} />
-    <path d="M-220,-50 L-270,-140 L-220,-140 L-150,-50 Z" fill={C.cyan} {...line} />
-    {[-140, -90, -40, 10, 60, 110].map((x) => (
-      <circle key={x} cx={x} cy={-18} r={11} fill="#CFE6F2" stroke={C.ink} strokeWidth={4} />
-    ))}
-  </G>
-);
+/* ---------- Airliner (side view, facing right; ~620 long, centred on the fuselage) ---------- */
+export const Plane: React.FC<Pos & {color?: string; accent?: string}> = ({color = C.white, accent = C.cyan, ...p}) => {
+  const fuselage =
+    'M-262,-40 L196,-40 C252,-40 292,-22 302,2 C292,26 258,38 210,38 L-186,38 C-226,38 -262,20 -298,-14 Q-306,-24 -296,-34 Q-284,-40 -262,-40 Z';
+  return (
+    <G {...p}>
+      {/* far-side wing peeking out above the fuselage */}
+      <path d="M30,-34 L-20,-74 L-48,-74 L-20,-34 Z" fill="#C9CCD2" stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
+      {/* tail fin */}
+      <path d="M-196,-38 L-246,-160 Q-250,-170 -238,-170 L-206,-170 Q-196,-170 -192,-160 L-130,-38 Z" fill={accent} {...line} />
+      <path d="M-226,-130 L-176,-130" stroke={C.white} strokeWidth={8} strokeLinecap="round" opacity={0.85} />
+      <path d={fuselage} fill={color} {...line} />
+      {/* livery stripe */}
+      <path d="M-280,6 L250,6 Q270,8 280,16 L-268,16 Z" fill={accent} />
+      {/* cockpit glass and cabin windows */}
+      <path d="M238,-26 L270,-24 Q282,-18 286,-8 L246,-10 Z" fill="#2F3A57" stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
+      {Array.from({length: 13}).map((_, i) => (
+        <rect key={i} x={-170 + i * 30} y={-22} width={13} height={17} rx={6} fill="#CFE6F2" stroke={C.ink} strokeWidth={3} />
+      ))}
+      <rect x={206} y={-30} width={22} height={52} rx={6} fill="none" stroke={C.ink} strokeWidth={3} />
+      <rect x={-210} y={-30} width={22} height={52} rx={6} fill="none" stroke={C.ink} strokeWidth={3} />
+      {/* tailplane */}
+      <path d="M-206,-6 L-280,-30 Q-292,-32 -290,-22 L-250,8 Z" fill="#C9CCD2" stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
+      {/* near wing with engine */}
+      <path d="M70,22 L-40,120 Q-48,128 -60,128 L-96,128 Q-104,126 -98,118 L-10,22 Z" fill="#E1E3E8" {...line} />
+      <path d="M-58,112 L-92,112" stroke={C.ink} strokeWidth={3} opacity={0.4} />
+      <rect x={-6} y={46} width={96} height={40} rx={20} fill="#C9CCD2" {...line} strokeWidth={5} />
+      <ellipse cx={88} cy={66} rx={9} ry={18} fill="#2B2A30" stroke={C.ink} strokeWidth={4} />
+      <rect x={-6} y={58} width={18} height={16} rx={6} fill={accent} />
+    </G>
+  );
+};
 
 /* ---------- Taxi meter ---------- */
 export const TaxiMeter: React.FC<Pos & {value: string}> = ({value, ...p}) => (
