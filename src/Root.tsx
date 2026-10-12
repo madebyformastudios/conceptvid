@@ -2,6 +2,7 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {Video} from './Video';
 import {CastSheet} from './characters/CastSheet';
+import {CastPose} from './characters/CastPose';
 import {totalFrames} from './timing';
 import {FPS, W, H} from './theme';
 import {printerInk} from './videos/printer-ink';
@@ -18,6 +19,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ConcertFees" component={ConcertFeesVideo} fps={FPS} width={W} height={H} durationInFrames={totalFrames(concertFees, FPS)} />
     <Composition id="PrinterInk" component={PrinterInkVideo} fps={FPS} width={W} height={H} durationInFrames={totalFrames(printerInk, FPS)} />
     <Composition id="KitSheet" component={KitSheet} fps={FPS} width={W} height={H} durationInFrames={30} />
+    <Composition id="CastPose" component={CastPose} defaultProps={{who: 'sam' as const, pose: 'neutral'}} fps={FPS} width={560} height={720} durationInFrames={1} />
     <Composition id="CastSheet" component={CastSheet} fps={FPS} width={W} height={H} durationInFrames={30} />
   </>
 );
